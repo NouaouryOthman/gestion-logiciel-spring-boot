@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Your software</title>
+</head>
+<body>
+<div layout:fragment="pageContent">
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                List of software
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Serial number</th>
+                        <th>Password</th>
+                        <th></th>
+                    </tr>
+                    <tr th:each="l:${logiciels}">
+                        <td th:text="${l.id}"></td>
+                        <td th:text="${l.nom}"></td>
+                        <td th:text="${l.numeroDeSerie}"></td>
+                        <td th:text="${l.motDePasse}"></td>
+                        <td><a class="btn btn-info"
+                               th:href="@{liens(id=${l.id})}">Liens à visiter</a>
+                        </td>
+                    </tr>
+                </table>
+                <ul class="nav nav-pills">
+                    <li th:each="page,status:${pages}">
+                        <a th:class="${status.index == currentPage?'btn btn-primary':'btn'}"
+                           th:href="@{logiciels(page=${status.index}, size=${size})}"
+                           th:text="${status.index + 1}"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

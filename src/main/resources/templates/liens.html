@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template">
+<head>
+    <meta charset="UTF-8">
+    <title>Software links</title>
+<body>
+<div layout:fragment="pageContent">
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header" th:text="${logiciel.nom}">
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label>Download software </label>
+                    <a th:href="@{|http://${lien.telechargLogiciel}|}" target="_blank"><strong><label>cliquer ici</label></strong></a>
+                </div>
+                <div class="form-group">
+                    <label>Release notes </label>
+                    <a th:href="@{|http://${lien.releaseNotes}|}" target="_blank"><strong><label>cliquer ici</label></strong></a>
+                </div>
+                <div class="form-group">
+                    <label>Download ElecIEC </label>
+                    <a th:href="@{|http://${lien.telechargEnvElecIEC}|}" target="_blank"><strong><label>cliquer ici</label></strong></a>
+                </div>
+                <div class="form-group">
+                    <label>Installation guide </label>
+                    <a th:href="@{|http://${lien.guideInstallation}|}" target="_blank"><strong><label>cliquer ici</label></strong></a>
+                </div>
+                <div class="form-group">
+                    <label>technical documentation </label>
+                    <a th:href="@{|http://${lien.documentationTechnique}|}" target="_blank"><strong><label>cliquer ici</label></strong></a>
+                </div>
+                <div class="form-group">
+                    <label>Training formation </label>
+                    <a th:href="@{|http://${lien.planningFormation}|}" target="_blank"><strong><label>cliquer ici</label></strong></a>
+                </div>
+                <div class="form-group">
+                    <label>Purchase order </label>
+                    <a th:href="@{|http://${lien.bonDeCommande}|}" target="_blank"><strong><label>cliquer ici</label></strong></a>
+                </div>
+                <div class="form-group">
+                    <label>Informations about service SEE web catalogue </label>
+                        <a th:href="@{|http://${lien.SEEWebCatalog}|}" target="_blank"><strong><label>cliquer ici</label></strong></a>
+                </div>
+                <div class="form-group">
+                    <label>Download list of manufactures of service SEE Web Catalogue </label>
+                    <a th:href="@{|http://${lien.telechargSEEWebCatalog}|}" target="_blank"><strong><label>cliquer ici</label></strong></a>
+                </div>
+                <div class="form-group">
+                    <label>Download SEE Electrical Expert Viewer </label>
+                    <a th:href="@{|http://${lien.telechargLogicielSEE}|}" target="_blank"><strong><label>cliquer ici</label></strong></a>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a th:href="@{logiciels}" class="btn btn-primary">Return to your Softwares</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

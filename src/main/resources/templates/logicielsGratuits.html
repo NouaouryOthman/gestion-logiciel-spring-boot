@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Free software</title>
+</head>
+<body>
+<div layout:fragment="pageContent">
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                Free software
+            </div>
+            <div class="card-body">
+                <form method="get" th:action="@{logicielsGratuits}">
+                    <div class="form-group">
+                        <label>Name </label>
+                        <input type="text" name="motCle" th:value="${motCle}">
+                        <button class="btn btn-success">Search</button>
+                    </div>
+                </form>
+                <table class="table">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th></th>
+                    </tr>
+                    <tr th:each="l:${logiciels}">
+                        <td th:text="${l.id}"></td>
+                        <td th:text="${l.nom}"></td>
+                        <td>
+                            <a class="btn btn-info" th:href="@{liens(id=${l.id})}">Liens</a>
+                        </td>
+                    </tr>
+                </table>
+                <ul class="nav nav-pills">
+                    <li th:each="page,status:${pages}">
+                        <a th:class="${status.index == currentPage?'btn btn-primary':'btn'}"
+                           th:href="@{logicielsGratuits(page=${status.index}, motCle=${motCle}, size=${size})}"
+                           th:text="${status.index + 1}"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

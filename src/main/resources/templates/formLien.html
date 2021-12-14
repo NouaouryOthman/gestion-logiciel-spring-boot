@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter liens</title>
+<body>
+<div layout:fragment="pageContent">
+    <div class="container mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Ajouter les liens!</div>
+                <div class="card-body">
+                    <form th:action="@{saveLien(id=${id})}" method="post">
+                        <div class="form-group">
+                            <label class="text-danger">NB : Veuillez supprimer le péfixe 'https://' des liens</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Lien téléchargement logiciel :</label>
+                            <input type="text" name="telechargLogiciel" class="form-control" th:value="${lien.telechargLogiciel}"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Release notes :</label>
+                            <input type="text" name="releaseNotes" class="form-control" th:value="${lien.releaseNotes}"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Lien téléchargement environnement Elec_IEC :</label>
+                            <input type="text" name="telechargEnvElecIEC" class="form-control" th:value="${lien.telechargEnvElecIEC}"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Guide d'installation :</label>
+                            <input type="text" name="guideInstallation" class="form-control" th:value="${lien.guideInstallation}"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Documentation technique :</label>
+                            <input type="text" name="documentationTechnique" class="form-control" th:value="${lien.documentationTechnique}"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Planning formation :</label>
+                            <input type="text" name="planningFormation" class="form-control" th:value="${lien.planningFormation}"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Lien téléchargement bon de commande :</label>
+                            <input type="text" name="bonDeCommande" class="form-control" th:value="${lien.bonDeCommande}"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Informations service SEE web catalogue :</label>
+                            <input type="text" name="SEEWebCatalog" class="form-control" th:value="${lien.SEEWebCatalog}"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Lien téléchargement liste des fabricants service SEE web catalogue :</label>
+                            <input type="text" name="telechargSEEWebCatalog" class="form-control" th:value="${lien.telechargSEEWebCatalog}"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Lien téléchargement logiciel viewer :</label>
+                            <input type="text" name="telechargLogicielSEE" class="form-control" th:value="${lien.telechargLogicielSEE}"/>
+                        </div>
+                        <button class="btn btn-success" type="submit">Validate !</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
